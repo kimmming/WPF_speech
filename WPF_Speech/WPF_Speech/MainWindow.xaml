@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350" Background="#FFF4DAFF" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" Height="450" Width="350" Background="#FFF4DAFF" WindowStartupLocation="CenterScreen" BorderThickness="0.01,0,0,0" ResizeMode="NoResize" >
 
     <Grid Margin="0,0,0,0">
 
 
 
-        <Label HorizontalAlignment="Left" Height="49" Margin="13,48,0,0" VerticalAlignment="Top" Width="227" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Left">
-            <TextBox Height="46" Text=" Service / 서비스ㅤ"  TextWrapping="Wrap" Width="217" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" FontSize="24" FontWeight="Normal" IsReadOnly="True">
+        <Label HorizontalAlignment="Left" Height="49" Margin="13,43,0,0" VerticalAlignment="Top" Width="219" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Left">
+            <TextBox Height="52" Text=" Service / 서비스ㅤ"  TextWrapping="Wrap" Width="226" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" FontSize="24" FontWeight="Normal" IsReadOnly="True" BorderThickness="0,0,0,0">
                 <TextBox.TextDecorations>
                     <TextDecoration/>
                 </TextBox.TextDecorations>
             </TextBox>
         </Label>
 
-        <Button HorizontalAlignment="Left"  Height="107" Margin="32,122,0,0" VerticalAlignment="Top" Width="143" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" Click="Button_Click" RenderTransformOrigin="0.561,1.029" AutomationProperties.IsOffscreenBehavior="Onscreen" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}">
+        <Button HorizontalAlignment="Left"  Height="107" Margin="32,122,0,0" VerticalAlignment="Top" Width="143" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" Click="Button_Click" RenderTransformOrigin="0.561,1.029" AutomationProperties.IsOffscreenBehavior="Onscreen" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Padding="0,0,0,0">
             <Image Height="104" Width="139" Source="/microphone-2104091_640.png" Stretch="Fill" StretchDirection="Both"/>
 
 
@@ -73,7 +73,7 @@
 
 
         <Label HorizontalAlignment="Left" Height="50" Margin="13,266,0,0" VerticalAlignment="Top" Width="162" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Left">
-            <TextBox Height="42" Text=" Log / 로그ㅤ" TextWrapping="Wrap" Width="166" Background="{x:Null}" FontWeight="Normal" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="24" IsReadOnly="True" FontStretch="Normal" BorderBrush="{x:Null}">
+            <TextBox Height="42" Text=" Log / 로그ㅤ" TextWrapping="Wrap" Width="166" Background="{x:Null}" FontWeight="Normal" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="24" IsReadOnly="True" FontStretch="Normal" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
                 <TextBox.TextDecorations>
                     <TextDecoration/>
                 </TextBox.TextDecorations>

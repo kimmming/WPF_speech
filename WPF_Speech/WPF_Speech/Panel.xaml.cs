@@ -26,10 +26,7 @@ namespace WPF_Speech
 
         }
 
-        public void setting()
-        {
-
-        }
+        
         
     }
 }

@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
-        Title="Panel" Height="200" Width="1000" Background="{x:Null}" WindowStyle="None" BorderBrush="White" Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Topmost="True">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" Height="200" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="1000" Foreground="Black" Background="Transparent"/>
+        Title="Panel" Background="{x:Null}" BorderBrush="White" Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Topmost="True" Width="1000" Height="200" MaxWidth="1000" MaxHeight="400" MinHeight="100" MinWidth="600" HorizontalAlignment="Left" WindowStyle="None" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" SizeToContent="WidthAndHeight">
+    <Grid HorizontalAlignment="Center" Background="White" Width="1000" Height="200">
+
+
+        <Slider HorizontalAlignment="Left" Height="20" Margin="847,180,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Width="126" RenderTransformOrigin="0.505,0.5" ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutoToolTipPlacement="None" Orientation="Horizontal"/>
+       
+        <Grid HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="1000">
+            <TextBlock HorizontalAlignment="Left" Height="200" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="1000"/>
+
+        </Grid>
     </Grid>
 </Window>
