@@ -5,20 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350" Background="#FFF4DAFF">
-    <Grid>
-        <Label Content="Service / 서비스" HorizontalAlignment="Left" Height="41" Margin="10,58,0,0" VerticalAlignment="Top" Width="151" FontSize="18" FontWeight="Bold"/>
-        <Label Content="입력 언어" HorizontalAlignment="Left" Height="30" Margin="222,99,0,0" VerticalAlignment="Top" Width="87" FontSize="14" FontWeight="Bold"/>
-        <Label Content="출력 언어" HorizontalAlignment="Left" Height="30" Margin="222,155,0,0" VerticalAlignment="Top" Width="87" FontSize="14" FontWeight="Bold"/>
-        <Label Content="음성 선택" HorizontalAlignment="Left" Height="30" Margin="222,211,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold" FontSize="14"/>
-        <ComboBox HorizontalAlignment="Left" Height="21" Margin="222,129,0,0" VerticalAlignment="Top" Width="87"/>
-        <ComboBox HorizontalAlignment="Left" Height="21" Margin="222,185,0,0" VerticalAlignment="Top" Width="87"/>
-        <ComboBox HorizontalAlignment="Left" Height="21" Margin="222,241,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button Content="" HorizontalAlignment="Left" Height="92" Margin="10,114,0,0" VerticalAlignment="Top" Width="151" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" BorderBrush="{x:Null}" Click="Button_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/microphone-2104091_640.png" Stretch="Fill"/>
-            </Button.Background>
+        Title="MainWindow" Height="450" Width="350" Background="#FFF4DAFF" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" >
+
+    <Grid Margin="0,0,0,0">
+
+
+
+        <Label HorizontalAlignment="Left" Height="49" Margin="13,48,0,0" VerticalAlignment="Top" Width="227" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Left">
+            <TextBox Height="46" Text=" Service / 서비스ㅤ"  TextWrapping="Wrap" Width="217" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" FontSize="24" FontWeight="Normal" IsReadOnly="True">
+                <TextBox.TextDecorations>
+                    <TextDecoration/>
+                </TextBox.TextDecorations>
+            </TextBox>
+        </Label>
+
+        <Button HorizontalAlignment="Left"  Height="107" Margin="32,122,0,0" VerticalAlignment="Top" Width="143" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" Click="Button_Click" RenderTransformOrigin="0.561,1.029" AutomationProperties.IsOffscreenBehavior="Onscreen" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Image Height="104" Width="139" Source="/microphone-2104091_640.png" Stretch="Fill" StretchDirection="Both"/>
+
+
         </Button>
 
+
+
+        <Label Content="입력 언어" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="87" FontSize="14" FontWeight="Bold" Margin="221,92,0,0"/>
+        <Label Content="출력 언어" HorizontalAlignment="Left" Height="30" Margin="221,153,0,0" VerticalAlignment="Top" Width="87" FontSize="14" FontWeight="Bold"/>
+        <Label Content="음성 선택" HorizontalAlignment="Left" Height="30" Margin="221,209,0,0" VerticalAlignment="Top" Width="87" FontWeight="Bold" FontSize="14"/>
+
+
+
+
+        <ComboBox x:Name="InputCombo" HorizontalAlignment="Left" Height="21" Margin="212,127,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="#FF0B0202" BorderBrush="{x:Null}" Background="{x:Null}" >
+
+
+            <ComboBoxItem Tag="en-US" IsSelected="true" Content="English"/>
+            <ComboBoxItem Tag="ar-EG" Content="Arabic"/>
+            <ComboBoxItem Tag="zh-CN" Content="Chinese"/>
+            <ComboBoxItem Tag="fr-FR" Content="French"/>
+            <ComboBoxItem Tag="de-DE" Content="German"/>
+            <ComboBoxItem Tag="it-IT" Content="Italian"/>
+            <ComboBoxItem Tag="ja-JP" Content="Japanese"/>
+            <ComboBoxItem Tag="pt-BR" Content="Portuguese"/>
+            <ComboBoxItem Tag="ru-RU" Content="Russian"/>
+            <ComboBoxItem Tag="es-ES" Content="Spanish"/>
+            <ComboBoxItem Tag="ko-KR" Content="Korean"/>
+        </ComboBox>
+
+
+        <ComboBox x:Name="OutputCombo"  HorizontalAlignment="Left" Height="21" Margin="212,188,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center">
+            <ComboBoxItem Tag="en-US" IsSelected="true"  Content="English"/>
+            <ComboBoxItem Tag="ar-EG" Content="Arabic"/>
+            <ComboBoxItem Tag="zh-CN" Content="Chinese "/>
+            <ComboBoxItem Tag="fr-FR" Content="French"/>
+            <ComboBoxItem Tag="de-DE" Content="German"/>
+            <ComboBoxItem Tag="it-IT" Content="Italian"/>
+            <ComboBoxItem Tag="ja-JP" Content="Japanese"/>
+            <ComboBoxItem Tag="pt-BR" Content="Portuguese"/>
+            <ComboBoxItem Tag="ru-RU" Content="Russian"/>
+            <ComboBoxItem Tag="es-ES" Content="Spanish"/>
+            <ComboBoxItem Tag="ko-KR" Content="Korean"/>
+        </ComboBox>
+
+        <ComboBox x:Name="audioCombo"  HorizontalAlignment="Left" Height="21" Margin="212,244,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center">
+            <ComboBoxItem Tag="Device"  Content="내부 음성"/>
+            <ComboBoxItem Tag="Mic" IsSelected="True"  Content="외부 음성"/>
+
+        </ComboBox>
+
+
+        <Label HorizontalAlignment="Left" Height="50" Margin="13,266,0,0" VerticalAlignment="Top" Width="162" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Left">
+            <TextBox Height="42" Text=" Log / 로그ㅤ" TextWrapping="Wrap" Width="166" Background="{x:Null}" FontWeight="Normal" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="24" IsReadOnly="True" FontStretch="Normal" BorderBrush="{x:Null}">
+                <TextBox.TextDecorations>
+                    <TextDecoration/>
+                </TextBox.TextDecorations>
+            </TextBox>
+        </Label>
+
+
+
+
     </Grid>
+
+
 </Window>

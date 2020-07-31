@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace WPF_Speech
 {
     /// <summary>
@@ -17,9 +18,18 @@ namespace WPF_Speech
     /// </summary>
     public partial class Panel : Window
     {
+
+
         public Panel()
         {
             InitializeComponent();
+
         }
+
+        public void setting()
+        {
+
+        }
+        
     }
 }

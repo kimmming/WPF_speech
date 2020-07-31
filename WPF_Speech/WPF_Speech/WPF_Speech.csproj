@@ -4,14 +4,22 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="microphone-2104091_640.png" />
+    <None Remove="microphone.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.13.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="microphone-2104091_640.png" />
+    <Resource Include="microphone.png" />
   </ItemGroup>
 
 </Project>
