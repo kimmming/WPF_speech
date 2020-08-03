@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
-        Title="Panel" Background="{x:Null}" BorderBrush="White" Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Topmost="True" Width="1000" Height="200" MaxWidth="1000" MaxHeight="400" MinHeight="100" MinWidth="600" HorizontalAlignment="Left" WindowStyle="None" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" SizeToContent="WidthAndHeight">
-    <Grid HorizontalAlignment="Center" Background="White" Width="1000" Height="200">
+        Title="Panel" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Topmost="True" Width="1000" Height="150" MaxWidth="1000" MaxHeight="400" MinHeight="150" MinWidth="600" HorizontalAlignment="Left"  VerticalAlignment="Stretch" HorizontalContentAlignment="Left" SizeToContent="WidthAndHeight">
+    <Grid Width="1000">
+        <TextBlock  x:Name="lblText" Panel.ZIndex="1" Foreground="Black" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="TextBlock" TextWrapping="Wrap" />
+        <Grid  x:Name="secondGrid" Width="1000" Background="White" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" ></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
 
-
-        <Slider HorizontalAlignment="Left" Height="20" Margin="847,180,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Width="126" RenderTransformOrigin="0.505,0.5" ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutoToolTipPlacement="None" Orientation="Horizontal"/>
-       
-        <Grid HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="1000">
-            <TextBlock HorizontalAlignment="Left" Height="200" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="1000"/>
-
+            <Slider x:Name="slOpacity" Grid.Row="1" Value="1" Maximum="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="200" ValueChanged="Slider_ValueChanged" />
         </Grid>
     </Grid>
 </Window>

@@ -23,10 +23,13 @@ namespace WPF_Speech
         public Panel()
         {
             InitializeComponent();
-
+            
         }
 
-        
-        
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            secondGrid.Opacity = e.NewValue;
+           
+        }
     }
 }

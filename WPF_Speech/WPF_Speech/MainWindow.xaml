@@ -6,8 +6,89 @@
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
         Title="SpeechService" Height="450" Width="350" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" BorderBrush="White" Visibility="Visible" ShowInTaskbar="False" Icon="/microphone.png" >
+    <Window.Resources>
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="8">
+                            <Ellipse
+                    Name="r1"
+                    Stroke="Black"
+                    StrokeDashArray="2 2"
+                    StrokeThickness="1"/>
+                            <Border
+                    Name="border"
+                    Width="{TemplateBinding ActualWidth}"
+                    Height="{TemplateBinding ActualHeight}"
+                    BorderThickness="1"
+                    CornerRadius="2"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CircleButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}"/>
+            <Setter Property="Background" Value="#FF6DB4EF"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Fill="{TemplateBinding Background}"/>
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0" Color="#00000000"/>
+                                        <GradientStop Offset="0.88" Color="#00000000"/>
+                                        <GradientStop Offset="1" Color="#80000000"/>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse Margin="10" x:Name="highlightCircle" >
+                                <Ellipse.Fill >
+                                    <LinearGradientBrush >
+                                        <GradientStop Offset="0" Color="#50FFFFFF"/>
+                                        <GradientStop Offset="0.5" Color="#00FFFFFF"/>
+                                        <GradientStop Offset="1" Color="#50FFFFFF"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="highlightCircle" Property="Fill">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0.3,0" EndPoint="0.7,1">
+                                            <GradientStop Offset="0" Color="#50FFFFFF"/>
+                                            <GradientStop Offset="0.5" Color="#00FFFFFF"/>
+                                            <GradientStop Offset="1" Color="#50FFFFFF"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform Y="0.5" X="0.5"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-    <Grid Margin="3,3,3,3" Background="#FFEAE0FF">
+    <Grid Margin="3,3,3,3">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0" >
+                <GradientStop Color="#FFDCCFF5" Offset="0"/>
+                <GradientStop Color="#FF7052AA" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
 
 
@@ -19,10 +100,10 @@
             </TextBox>
         </Label>
 
-        <Button HorizontalAlignment="Left"  Height="107" Margin="32,122,0,0" VerticalAlignment="Top" Width="143" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" Click="Button_Click" RenderTransformOrigin="0.561,1.029" AutomationProperties.IsOffscreenBehavior="Onscreen" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Padding="0,0,0,0">
-            <Image Height="104" Width="139" Source="/microphone-2104091_640.png" Stretch="Fill" StretchDirection="Both"/>
+        <Button HorizontalAlignment="Left" Style="{StaticResource CircleButton}"  Height="107" Margin="32,122,0,0" VerticalAlignment="Top" Width="143" IsCancel="True" FontStretch="SemiExpanded" FontStyle="Normal" FontWeight="Thin" Click="Button_Click" RenderTransformOrigin="0.561,1.029" AutomationProperties.IsOffscreenBehavior="Onscreen" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" Padding="0,0,0,0" UseLayoutRounding="True">
+            <Image  Height="104" Width="139" Source="/microphone-2104091_640.png" Stretch="Fill" StretchDirection="Both">
 
-
+            </Image>
         </Button>
 
 

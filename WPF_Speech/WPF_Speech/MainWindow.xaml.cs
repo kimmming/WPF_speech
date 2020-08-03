@@ -91,7 +91,7 @@ namespace WPF_Speech
             this.InputLanguage = ((ComboBoxItem)InputCombo.SelectedItem).Tag.ToString();
             this.OutputLanguage = ((ComboBoxItem)OutputCombo.SelectedItem).Tag.ToString();
 
-            this.CreateRecognizer();
+          //  this.CreateRecognizer();
       
         }
 
