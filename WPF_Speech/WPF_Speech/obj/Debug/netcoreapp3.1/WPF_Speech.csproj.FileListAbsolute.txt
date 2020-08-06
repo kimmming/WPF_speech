@@ -72,7 +72,6 @@ F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\bin\Debug\netcoreapp3.1\runt
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.codec.dll
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.kws.dll
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.CognitiveServices.Speech.extension.silk_codec.dll
-F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_Speech.csprojAssemblyReference.cache
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\Panel.g.cs
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\App.g.cs

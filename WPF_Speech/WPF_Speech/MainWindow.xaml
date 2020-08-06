@@ -118,7 +118,7 @@
         <ComboBox x:Name="InputCombo" HorizontalAlignment="Left" Height="21" Margin="212,127,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="#FF0B0202" BorderBrush="{x:Null}" Background="{x:Null}" >
 
 
-            <ComboBoxItem Tag="en-US" IsSelected="true" Content="English"/>
+            <ComboBoxItem Tag="en-US" Content="English"/>
             <ComboBoxItem Tag="ar-EG" Content="Arabic"/>
             <ComboBoxItem Tag="zh-CN" Content="Chinese"/>
             <ComboBoxItem Tag="fr-FR" Content="French"/>
@@ -128,7 +128,7 @@
             <ComboBoxItem Tag="pt-BR" Content="Portuguese"/>
             <ComboBoxItem Tag="ru-RU" Content="Russian"/>
             <ComboBoxItem Tag="es-ES" Content="Spanish"/>
-            <ComboBoxItem Tag="ko-KR" Content="Korean"/>
+            <ComboBoxItem Tag="ko-KR" IsSelected="true" Content="Korean"/>
         </ComboBox>
 
 
@@ -143,7 +143,7 @@
             <ComboBoxItem Tag="pt-BR" Content="Portuguese"/>
             <ComboBoxItem Tag="ru-RU" Content="Russian"/>
             <ComboBoxItem Tag="es-ES" Content="Spanish"/>
-            <ComboBoxItem Tag="ko-KR" Content="Korean"/>
+            <ComboBoxItem Tag="ko-KR" IsSelected="true" Content="Korean"/>
         </ComboBox>
 
         <ComboBox x:Name="audioCombo"  HorizontalAlignment="Left" Height="21" Margin="212,244,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center">

@@ -83,14 +83,14 @@ namespace WPF_Speech
        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-
-            Panel panel = new Panel();
-            panel.Show();
-
             this.InputLanguage = ((ComboBoxItem)InputCombo.SelectedItem).Tag.ToString();
             this.OutputLanguage = ((ComboBoxItem)OutputCombo.SelectedItem).Tag.ToString();
 
+
+            Panel panel = new Panel(this.InputLanguage, this.OutputLanguage);
+            panel.Show();
+
+        
           //  this.CreateRecognizer();
       
         }
