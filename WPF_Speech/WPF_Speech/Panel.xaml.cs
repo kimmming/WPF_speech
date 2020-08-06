@@ -65,13 +65,7 @@ namespace WPF_Speech
                 this.OnPropertyChanged<string>();
             }
         }
-
-
-        enum RecoType
-        {
-            Base = 1,
-            Custom = 2
-        }
+                   
 
         public Panel()
         {
@@ -106,27 +100,27 @@ namespace WPF_Speech
          
                 using (basicRecognizer = new SpeechRecognizer(config))
                 {
-                    await this.RunRecognizer(basicRecognizer, RecoType.Base, stopBaseRecognitionTaskCompletionSource).ConfigureAwait(false);
+                    await this.RunRecognizer(basicRecognizer, stopBaseRecognitionTaskCompletionSource).ConfigureAwait(false);
                 }
           
        
         }
 
-        private async Task RunRecognizer(SpeechRecognizer recognizer, RecoType recoType, TaskCompletionSource<int> source)
+        private async Task RunRecognizer(SpeechRecognizer recognizer, TaskCompletionSource<int> source)
         {
             //subscribe to events
          
-            EventHandler<SpeechRecognitionEventArgs> recognizingHandler = (sender, e) => RecognizingEventHandler(e, recoType);
+            EventHandler<SpeechRecognitionEventArgs> recognizingHandler = (sender, e) => RecognizingEventHandler(e);
             
             recognizer.Recognizing += recognizingHandler;
          
 
-            EventHandler<SpeechRecognitionEventArgs> recognizedHandler = (sender, e) => RecognizedEventHandler(e, recoType);
-            EventHandler<SpeechRecognitionCanceledEventArgs> canceledHandler = (sender, e) => CanceledEventHandler(e, recoType, source);
-            EventHandler<SessionEventArgs> sessionStartedHandler = (sender, e) => SessionStartedEventHandler(e, recoType);
-            EventHandler<SessionEventArgs> sessionStoppedHandler = (sender, e) => SessionStoppedEventHandler(e, recoType, source);
-            EventHandler<RecognitionEventArgs> speechStartDetectedHandler = (sender, e) => SpeechDetectedEventHandler(e, recoType, "start");
-            EventHandler<RecognitionEventArgs> speechEndDetectedHandler = (sender, e) => SpeechDetectedEventHandler(e, recoType, "end");
+            EventHandler<SpeechRecognitionEventArgs> recognizedHandler = (sender, e) => RecognizedEventHandler(e);
+            EventHandler<SpeechRecognitionCanceledEventArgs> canceledHandler = (sender, e) => CanceledEventHandler(e, source);
+            EventHandler<SessionEventArgs> sessionStartedHandler = (sender, e) => SessionStartedEventHandler(e);
+            EventHandler<SessionEventArgs> sessionStoppedHandler = (sender, e) => SessionStoppedEventHandler(e, source);
+            EventHandler<RecognitionEventArgs> speechStartDetectedHandler = (sender, e) => SpeechDetectedEventHandler(e, "start");
+            EventHandler<RecognitionEventArgs> speechEndDetectedHandler = (sender, e) => SpeechDetectedEventHandler(e, "end");
 
             recognizer.Recognized += recognizedHandler;
             recognizer.Canceled += canceledHandler;
@@ -160,7 +154,7 @@ namespace WPF_Speech
         /// <summary>
         /// Logs intermediate recognition results
         /// </summary>
-        private void RecognizingEventHandler(SpeechRecognitionEventArgs e, RecoType rt)
+        private void RecognizingEventHandler(SpeechRecognitionEventArgs e)
         {
       
         }
@@ -168,7 +162,7 @@ namespace WPF_Speech
         /// <summary>
         /// Logs the final recognition result
         /// </summary>
-        private void RecognizedEventHandler(SpeechRecognitionEventArgs e, RecoType rt)
+        private void RecognizedEventHandler(SpeechRecognitionEventArgs e)
         {          
             this.SetCurrentText(this.lblText, e.Result.Text);
         }
@@ -177,7 +171,7 @@ namespace WPF_Speech
         /// Logs Canceled events
         /// And sets the TaskCompletionSource to 0, in order to trigger Recognition Stop
         /// </summary>
-        private void CanceledEventHandler(SpeechRecognitionCanceledEventArgs e, RecoType rt, TaskCompletionSource<int> source)
+        private void CanceledEventHandler(SpeechRecognitionCanceledEventArgs e,  TaskCompletionSource<int> source)
         {
 
         }
@@ -185,7 +179,7 @@ namespace WPF_Speech
         /// <summary>
         /// Session started event handler.
         /// </summary>
-        private void SessionStartedEventHandler(SessionEventArgs e, RecoType rt)
+        private void SessionStartedEventHandler(SessionEventArgs e)
         {
            
         }
@@ -193,12 +187,12 @@ namespace WPF_Speech
         /// <summary>
         /// Session stopped event handler. Set the TaskCompletionSource to 0, in order to trigger Recognition Stop
         /// </summary>
-        private void SessionStoppedEventHandler(SessionEventArgs e, RecoType rt, TaskCompletionSource<int> source)
+        private void SessionStoppedEventHandler(SessionEventArgs e, TaskCompletionSource<int> source)
         {
            
         }
 
-        private void SpeechDetectedEventHandler(RecognitionEventArgs e, RecoType rt, string eventType)
+        private void SpeechDetectedEventHandler(RecognitionEventArgs e, string eventType)
         {
         
         }
