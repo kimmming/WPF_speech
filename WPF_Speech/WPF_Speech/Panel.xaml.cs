@@ -156,7 +156,8 @@ namespace WPF_Speech
         /// </summary>
         private void RecognizingEventHandler(SpeechRecognitionEventArgs e)
         {
-      
+            TextBox log = this.baseModelLogText;
+            this.WriteLine(log, "Intermediate result: {0} ", e.Result.Text);
         }
 
         /// <summary>
@@ -165,6 +166,13 @@ namespace WPF_Speech
         private void RecognizedEventHandler(SpeechRecognitionEventArgs e)
         {          
             this.SetCurrentText(this.lblText, e.Result.Text);
+
+            TextBox log = this.baseModelLogText;
+            if (!string.IsNullOrEmpty(e.Result.Text))
+            {
+                this.WriteLine(log, e.Result.Text);
+            }
+
         }
 
         /// <summary>
@@ -173,7 +181,11 @@ namespace WPF_Speech
         /// </summary>
         private void CanceledEventHandler(SpeechRecognitionCanceledEventArgs e,  TaskCompletionSource<int> source)
         {
-
+            TextBox log = this.baseModelLogText;
+            source.TrySetResult(0);
+            this.WriteLine(log, "--- recognition canceled ---");
+            this.WriteLine(log, $"CancellationReason: {e.Reason.ToString()}. ErrorDetails: {e.ErrorDetails}.");
+            this.WriteLine(log);
         }
 
         /// <summary>
@@ -181,7 +193,8 @@ namespace WPF_Speech
         /// </summary>
         private void SessionStartedEventHandler(SessionEventArgs e)
         {
-           
+            TextBox log = this.baseModelLogText;
+            this.WriteLine(log, String.Format(CultureInfo.InvariantCulture, "Speech recognition: Session started event: {0}.", e.ToString()));
         }
 
         /// <summary>
@@ -189,12 +202,16 @@ namespace WPF_Speech
         /// </summary>
         private void SessionStoppedEventHandler(SessionEventArgs e, TaskCompletionSource<int> source)
         {
-           
+            TextBox log = this.baseModelLogText;
+            this.WriteLine(log, String.Format(CultureInfo.InvariantCulture, "Speech recognition: Session stopped event: {0}.", e.ToString()));
+            source.TrySetResult(0);
         }
 
         private void SpeechDetectedEventHandler(RecognitionEventArgs e, string eventType)
         {
-        
+            TextBox log = this.baseModelLogText;
+            this.WriteLine(log, String.Format(CultureInfo.InvariantCulture, "Speech recognition: Speech {0} detected event: {1}.",
+               eventType, e.ToString()));
         }
 
         #endregion
@@ -298,7 +315,8 @@ namespace WPF_Speech
             {
                 log.AppendText((formattedStr + "\n"));
                 log.ScrollToEnd();
-            });
+            });        
+
         }
 
         private void SetCurrentText(TextBlock textBlock, string text)
@@ -342,5 +360,25 @@ namespace WPF_Speech
         }
 
         #endregion Events
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            // Log file create
+            string fileName = string.Format("log_{0}.txt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            TextBox log = this.baseModelLogText;
+            if (fileName != null)
+            {
+                using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null))
+                {
+                    using (var oStream = new IsolatedStorageFileStream(fileName, FileMode.Create, isoStore))
+                    {
+                        using (var writer = new StreamWriter(oStream))
+                        {
+                            writer.WriteLine(log.Text);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

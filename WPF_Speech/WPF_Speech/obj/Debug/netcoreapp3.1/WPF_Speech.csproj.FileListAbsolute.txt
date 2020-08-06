@@ -87,3 +87,4 @@ F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_Speech.dll
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_Speech.pdb
 F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_Speech.genruntimeconfig.cache
+F:\Hanium\2020\AI Speech\main\WPF_Speech\WPF_Speech\obj\Debug\netcoreapp3.1\WPF_Speech.csprojAssemblyReference.cache

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -33,40 +35,13 @@ namespace WPF_Speech
 
 
     public partial class MainWindow : Window
-    {
-
-        
+    {    
 
      
         public string InputLanguage { get; set; }
 
         public string OutputLanguage { get; set; }
 
-
-       
-
-
-        public async void CreateRecognizer()
-        {
-
-            var config = SpeechTranslationConfig.FromSubscription("3b8301ddb4d844209a6ff2bbb20d13d7", "koreacentral");
-
-
-            config.SpeechRecognitionLanguage = InputLanguage;
-            config.SpeechRecognitionLanguage = OutputLanguage;
-
-         
-            config.AddTargetLanguage(OutputLanguage);
-
-            using (var recognizer = new TranslationRecognizer(config))
-            {
-               
-                var result = await recognizer.RecognizeOnceAsync();
-
-            }
-        }
-
-       
         
 
         /// <summary>
@@ -75,10 +50,8 @@ namespace WPF_Speech
         public MainWindow()
         {
             InitializeComponent();
-         
-        }
-
-       
+            GetLogfiles();
+        }      
        
        
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -88,13 +61,34 @@ namespace WPF_Speech
 
 
             Panel panel = new Panel(this.InputLanguage, this.OutputLanguage);
-            panel.Show();
-
-        
-          //  this.CreateRecognizer();
+            panel.Show();       
       
         }
 
-       
+        private void GetLogfiles()
+        {
+            this.logs.Items.Clear();
+            using (IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null))
+            {
+                try
+                {             
+                    foreach (string file in GetAllFiles("log_*", isoStore))
+                    {
+                        this.logs.Items.Add(file);
+                    }
+                }
+                catch (FileNotFoundException)                {
+                   
+                }
+            }
+        }
+        private static List<String> GetAllFiles(string pattern, IsolatedStorageFile storeFile)
+        {
+            List<String> fileList = new List<String>(storeFile.GetFileNames(pattern));          
+
+            return fileList;
+        } // End of GetFiles.
+
+
     }
 }

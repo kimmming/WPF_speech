@@ -160,6 +160,8 @@
                 </TextBox.TextDecorations>
             </TextBox>
         </Label>
+        <ListBox x:Name="logs" Height="100" Margin="22,321,28,7" />
+
 
 
 
