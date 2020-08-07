@@ -31,7 +31,7 @@ namespace WPF_Speech
 
         private const string defaultLocale = "en-US";
         private string endpointId = "https://koreacentral.api.cognitive.microsoft.com/sts/v1.0/issuetoken";
-        private string subscriptionKey = "";  //Before publish to Git, please remove key value.
+        private string subscriptionKey = "3b8301ddb4d844209a6ff2bbb20d13d7";
         private string region = "koreacentral";
         private const string endpointIdFileName = "CustomModelEndpointId.txt";
         private const string subscriptionKeyFileName = "SubscriptionKey.txt";
