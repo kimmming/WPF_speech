@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YR9mNF/cLZa2kAZkYDTvYDJPcxq7JQWFrOwzX2g6GlNfD9Jk7eHds8JNEBSWrrOhAG7OP8O+psEr69PuRWukQA==",
+  "dgSpecHash": "/Ek59uG/ma2wiwVlz1dZCmdCTNyaNZKyzt960AYRFqi+Xnk3tYpWmZSU6Ir8KXe/s4XjefZ3Oozu5jCbimGq+Q==",
   "success": true,
-  "projectFilePath": "F:\\Hanium\\2020\\AI Speech\\main\\WPF_Speech\\WPF_Speech\\WPF_Speech.csproj",
+  "projectFilePath": "C:\\Users\\김민지\\Documents\\Source\\Repos\\main\\WPF_Speech\\WPF_Speech\\WPF_Speech.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\padmin\\.nuget\\packages\\microsoft.cognitiveservices.speech\\1.13.0\\microsoft.cognitiveservices.speech.1.13.0.nupkg.sha512"
+    "C:\\Users\\김민지\\.nuget\\packages\\microsoft.cognitiveservices.speech\\1.13.0\\microsoft.cognitiveservices.speech.1.13.0.nupkg.sha512"
   ],
   "logs": []
 }
