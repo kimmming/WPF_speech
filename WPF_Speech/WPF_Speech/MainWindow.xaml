@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Speech"
         mc:Ignorable="d"
-        Title="SpeechService" Height="450" Width="350" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" BorderBrush="White" Visibility="Visible" ShowInTaskbar="False" Icon="/microphone.png" >
+        Title="SpeechService" Height="450" Width="350" Background="White" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" BorderBrush="White" Visibility="Visible" ShowInTaskbar="False" Icon="/microphone.png" >
     <Window.Resources>
         <Style x:Key="MyFocusVisual">
             <Setter Property="Control.Template">
@@ -115,7 +116,8 @@
 
 
 
-        <ComboBox x:Name="InputCombo" HorizontalAlignment="Left" Height="21" Margin="212,127,0,0" VerticalAlignment="Top" Width="104" AllowDrop="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="#FF0B0202" BorderBrush="{x:Null}" Background="{x:Null}" >
+        <ComboBox x:Name="InputCombo" HorizontalAlignment="Left" Height="21" Margin="212,127,0,0" VerticalAlignment="Top" Width="104" 
+                  AllowDrop="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="#FF0B0202" BorderBrush="{x:Null}" Background="{x:Null}" >
 
 
             <ComboBoxItem Tag="en-US" Content="English"/>

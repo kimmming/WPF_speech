@@ -38,9 +38,9 @@ namespace WPF_Speech
     {    
 
      
-        public string InputLanguage { get; set; }
+        public string fromLanguage { get; set; }
 
-        public string OutputLanguage { get; set; }
+        public string toLanguage { get; set; }
 
         
 
@@ -56,11 +56,11 @@ namespace WPF_Speech
        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.InputLanguage = ((ComboBoxItem)InputCombo.SelectedItem).Tag.ToString();
-            this.OutputLanguage = ((ComboBoxItem)OutputCombo.SelectedItem).Tag.ToString();
+            this.fromLanguage = ((ComboBoxItem)InputCombo.SelectedItem).Tag.ToString();
+            this.toLanguage = ((ComboBoxItem)OutputCombo.SelectedItem).Tag.ToString();
 
 
-            Panel panel = new Panel(this.InputLanguage, this.OutputLanguage);
+            Panel panel = new Panel(this.fromLanguage, this.toLanguage);
             panel.Show();       
       
         }

@@ -28,6 +28,7 @@ namespace WPF_Speech
     {
         private string fromLanguage = "";
         private string toLanguage = "";
+        
 
         private const string defaultLocale = "en-US";
         private string endpointId = "https://koreacentral.api.cognitive.microsoft.com/sts/v1.0/issuetoken";
